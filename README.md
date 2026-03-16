@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # 3rd Year AppDev Library System
 
@@ -19,9 +18,8 @@ Contains programming books for final year modules.
 - **Member**: 3rd year students who can borrow books
 - **Loan**: Records of books borrowed
 - **Librarian**: Staff who manage the library
-- **Category**: Book categories (Software Eng, Mobile, Web, etc.)
+- **Category**: Book categories (Software Eng, Database, Project Management, etc.)
 
-<<<<<<< HEAD
 ## UML Diagram
 
 

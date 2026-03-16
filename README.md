@@ -40,6 +40,7 @@ Contains programming books for final year modules.
 - Author comments included
 - No merge conflicts
 - All tests passing
+- **Category**: Book categories (Software Eng, Mobile, Web, etc.)
 
 ## UML Diagram
 

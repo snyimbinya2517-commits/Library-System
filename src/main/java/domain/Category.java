@@ -35,6 +35,11 @@ public class Category {
 
     // BUILDER PATTERN
     public static class Builder {
+        public String publisherID;
+        public String publisherName;
+        public String publisherEmail;
+        public String publisherPhone;
+        public String publisherAddress;
         private final String categoryId;
         private final String name;
         private String description;

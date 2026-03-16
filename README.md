@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # 3rd Year AppDev Library System
 
@@ -25,10 +24,3 @@ Contains programming books for final year modules.
 ## UML Diagram
 
 
-
->>>>>>> master
-
-
-
->>>>>>> master
->>>>>>> ade5e57 (Align domain/factory/repository code and add simple factory tests)

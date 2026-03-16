@@ -1,6 +1,7 @@
 /* Member.java
    Member domain class
-  
+   Author:
+   Date:
 */
 package domain;
 

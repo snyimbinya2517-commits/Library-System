@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# Library-System
+=======
 # 3rd Year AppDev Library System
 
 ## Group Members
@@ -18,7 +21,15 @@ Contains programming books for final year modules.
 - **Loan**: Records of books borrowed
 - **Librarian**: Staff who manage the library
 - **Category**: Book categories (Software Eng, Mobile, Web, etc.)
-- **Publisher**: Book publishers
 
+<<<<<<< HEAD
 ## UML Diagram
 
+=======
+
+>>>>>>> master
+
+
+
+>>>>>>> master
+>>>>>>> ade5e57 (Align domain/factory/repository code and add simple factory tests)

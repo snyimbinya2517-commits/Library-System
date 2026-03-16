@@ -1,7 +1,7 @@
 /* Librarian.java
-   Librarian domain class
-   Author: Sinethemba Nyimbinya (220085870)
-   Date: 16 March 2026
+   Librarian domain class.
+   Author: Sinethemba Nyimbinya (220085870).
+   Date: 16 March 2026.
 */
 package domain;
 

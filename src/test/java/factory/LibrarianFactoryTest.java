@@ -1,6 +1,6 @@
 package factory;
 
-//Librarian Factory Test
+//Librarian Factory Test.
 //Author:
 //Date:
 

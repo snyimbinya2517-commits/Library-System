@@ -2,7 +2,9 @@
    Reservation factory class
    
 */
-//Abulele Ntwanambi 218276400
+
+//Author: Abulele Ntwanambi 218276400
+//Date:
 package factory;
 
 

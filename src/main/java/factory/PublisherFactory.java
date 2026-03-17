@@ -1,7 +1,7 @@
 /* PublisherFactory.java
    Publisher factory class
-   Author: Owenkosi Nxasana (230240887)
-   Date: 13 March 2026
+   Author: Ngwana Tiyani 231266731
+   Date: 16 March 2026
 */
 package factory;
 

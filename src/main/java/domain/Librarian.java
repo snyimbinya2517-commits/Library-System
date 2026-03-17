@@ -1,11 +1,15 @@
 /* Librarian.java
-   Librarian domain class
-   Author: Sinethemba Nyimbinya (220085870)
-   Date: 16 March 2026
+   Librarian domain class.
+   Author: Sinethemba Nyimbinya (220085870).
+   Date: 16 March 2026.
 */
 package domain;
 
 import java.util.Objects;
+
+//Librarian domain class
+//Author:
+//Date: 16 March 2026
 
 public class Librarian{
     private String StaffId;

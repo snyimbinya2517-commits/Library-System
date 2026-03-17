@@ -1,11 +1,15 @@
 /* Member.java
    Member domain class
-   Author: Nomhle Njengele (216227488)
-   Date: 13 March 2026
+   Author:
+   Date:
 */
 package domain;
 
 import java.util.Objects;
+
+// Member domain class
+//Author:
+//Date
 
 public class Member
 {

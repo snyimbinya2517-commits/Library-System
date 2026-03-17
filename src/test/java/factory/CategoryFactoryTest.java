@@ -5,11 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Category Factory Test.
+//Author: Ngwana Tiyani 231266731.
+//Date: 16 March 2026.
+
 class CategoryFactoryTest {
 
     @Test
     void testCreateCategoryWithRequiredFields() {
-        // This test will pass when factory is implemented correctly
+        // This test will pass when factory is implemented 
         Category category = CategoryFactory.createCategory("C001", "Software Engineering");
 
         assertNotNull(category);

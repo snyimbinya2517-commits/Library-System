@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Publisher Factory Test.
+//Author: Ngwana Tiyani 231266731.
+//Date: 16 March 2026.
+
 class PublisherFactoryTest {
 
     @Test

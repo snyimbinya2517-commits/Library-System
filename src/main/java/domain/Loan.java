@@ -1,10 +1,9 @@
-/* Loan.java
-   Loan domain class
-   Author: Sinazo Ntsimbi (22765208)
-   Date: 13 March 2026
-*/
-package domain;
 
+package domain;
+/**
+ * Authour: Sinazo Ntsimbi
+ * 222765208
+ */
 import java.time.LocalDate;
 
 public class Loan {
@@ -39,26 +38,27 @@ public class Loan {
 
     @override
     public String toString() {
-        return "Loan{" + "loanId='"  + loanId + '\'' +
+        return "Loan{" + "loanId='" + loanId + '\'' +
                 ", issueDate=" + issueDate +
-                ", dueDate=" + dueDate + 
+                ", dueDate=" + dueDate +
                 ", returnDate=" + returnDate + '}';
     }
-    public static  class Builder {
-        
+
+    public static class Builder {
+
         private String loanId;
         private LocalDate issueDate;
         private LocalDate dueDate;
         private LocalDate returnDate;
-        
-        
+
 
         public void setLoanId(String loanId) {
             this.loanId = loanId;
             return this;
         }
+
         public void setIssue(localDate issueDate) {
-            this,issueDate =  issueDate;
+            this, issueDate = issueDate;
             return this;
         }
 
@@ -71,6 +71,7 @@ public class Loan {
             this.returnDate = returnDate;
             return this;
         }
+
         public loan build() {
             return new Loan(this);
         }

@@ -1,9 +1,9 @@
-/* LoanFactory.java
-   Loan factory class
-   Author: Sinazo Ntsimbi (22765208)
-   Date: 13 March 2026
-*/
+
 package factory;
+/**
+ *Author: Sinazo Ntsimbi
+ * 222765208
+ */
 
 import domain.Loan;
 import java.time.LocalDate;
@@ -16,6 +16,7 @@ public class LoanFactory {
                 .setDueDate(dueDate)
                 .setReturnDate(returnDate)
                 .build();
+
     }
 }
 

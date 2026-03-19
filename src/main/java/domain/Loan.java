@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Loan
 {
 
-<<<<<<< 222765208
+//<<<<<<< 222765208
     private String loanId;
     private LocalDate issueDate;
     private LocalDate dueDate;
@@ -39,7 +39,7 @@ public class Loan
         return returnDate;
     }
 
-    @override
+
     public String toString() {
         return "Loan{" + "loanId='" + loanId + '\'' +
                 ", issueDate=" + issueDate +
@@ -55,31 +55,29 @@ public class Loan
         private LocalDate returnDate;
 
 
-        public void setLoanId(String loanId) {
+        public Builder setLoanId(String loanId) {
             this.loanId = loanId;
             return this;
         }
 
-        public void setIssue(localDate issueDate) {
-            this, issueDate = issueDate;
+        public Builder setIssue(LocalDate issueDate) {
+            this.issueDate = issueDate;
             return this;
         }
 
-        public void setDueDate(LocalDate dueDate) {
+        public Builder setDueDate(LocalDate dueDate) {
             this.dueDate = dueDate;
             return this;
         }
 
-        public void setReturnDate(LocalDate returnDate) {
+        public Builder setReturnDate(LocalDate returnDate) {
             this.returnDate = returnDate;
             return this;
         }
 
-        public loan build() {
+        public Loan build() {
             return new Loan(this);
         }
     }
 }
-=======
-}
->>>>>>> main
+

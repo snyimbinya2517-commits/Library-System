@@ -1,7 +1,7 @@
 /* Publisher.java
-   Publisher domain class
-   Author: Ngwana Tiyani 231266731
-   Date: 13 March 2026
+   Publisher domain class.
+   Author: Ngwana Tiyani 231266731.
+   Date: 13 March 2026.
 */
 package domain;
 

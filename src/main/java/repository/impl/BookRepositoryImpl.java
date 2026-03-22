@@ -1,11 +1,16 @@
 package repository.impl;
 
+
+/*
+  Author: Nomhle Ngengele 216227488
+  Date: 16 March 2026
+* */
+
+
 import domain.Book;
 import repository.BookRepository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -14,7 +19,7 @@ public class BookRepositoryImpl implements BookRepository {
 	private final Map<String, Book> storage = new HashMap<>();
 
 	private String keyFor(Book book) {
-		return String.valueOf(book.hashCode());
+		return book.hashCode() + "";
 	}
 
 	@Override
@@ -37,10 +42,5 @@ public class BookRepositoryImpl implements BookRepository {
 	@Override
 	public boolean delete(String id) {
 		return storage.remove(id) != null;
-	}
-
-	@Override
-	public List<Book> findAll() {
-		return new ArrayList<>(storage.values());
 	}
 }

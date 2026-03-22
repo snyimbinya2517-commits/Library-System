@@ -3,7 +3,6 @@ package repository.impl;
 import domain.Category;
 import repository.CategoryRepository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,10 +34,6 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 		return storage.remove(id) != null;
 	}
 
-	@Override
-	public List<Category> findAll() {
-		return new ArrayList<>(storage.values());
-	}
 
 	@Override
 	public Optional<Category> findByName(String name) {
@@ -49,13 +44,9 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 	@Override
 	public List<Category> findByNameContaining(String keyword) {
-		List<Category> results = new ArrayList<>();
-		for (Category category : storage.values()) {
-			if (category.getName().toLowerCase().contains(keyword.toLowerCase())) {
-				results.add(category);
-			}
-		}
-		return results;
+		return storage.values().stream()
+				.filter(category -> category.getName().toLowerCase().contains(keyword.toLowerCase()))
+				.toList();
 	}
 
 	@Override

@@ -4,15 +4,14 @@
 */
 
 //Author: Abulele Ntwanambi 218276400
-//Date:
+//Date: 16 March 2026
 package factory;
 
 
 import domain.Reservation;
 import java.time.LocalDate;
 
-//Author:
-//Date: 16 March 2026
+
 
 public class ReservationFactory
 {

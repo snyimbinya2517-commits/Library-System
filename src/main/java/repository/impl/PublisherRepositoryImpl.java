@@ -3,9 +3,7 @@ package repository.impl;
 import domain.Publisher;
 import repository.PublisherRepository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,10 +31,5 @@ public class PublisherRepositoryImpl implements PublisherRepository {
 	@Override
 	public boolean delete(String id) {
 		return storage.remove(id) != null;
-	}
-
-	@Override
-	public List<Publisher> findAll() {
-		return new ArrayList<>(storage.values());
 	}
 }

@@ -5,7 +5,6 @@
 */
 package repository;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface IRepository<T, ID> {
@@ -16,7 +15,5 @@ public interface IRepository<T, ID> {
     T update(T entity);
 
     boolean delete(ID id);
-
-    List<T> findAll();
 }
 

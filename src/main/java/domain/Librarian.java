@@ -12,10 +12,10 @@ import java.util.Objects;
 //Date: 16 March 2026
 
 public class Librarian{
-    private String StaffId;
-    private String name;
-    private String email;
-    private String number;
+    private final String StaffId;
+    private final String name;
+    private final String email;
+    private final String number;
 
     private Librarian(Builder builder){
         this.StaffId = builder.StaffId;

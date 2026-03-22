@@ -3,7 +3,7 @@ package factory;
 
 //Member Factory Test.
 //Author: 230240887 Nxasana Owenkosi
-//Date:
+//Date: 16 March
 
 import domain.Member;
 import org.junit.jupiter.api.Test;
@@ -12,28 +12,31 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberFactoryTest {
 
     @Test
-    void shouldCreateMemberUsingBuilder() {
+    void shouldCreateMemberUsingFactoryWithAllFields() {
 
-        Member member = new Member.Builder("M001", "Owe Nxasana")
-                .setMemberEmail("owe@email.com")
-                .setMemberPhone("0832234567")
-                .setMembershipDate("2026-03-18")
-                .build();
+        Member member = MemberFactory.createMember("M001", "Owe Nxasana", "owe@email.com", "0832234567");
 
         assertNotNull(member);
-        assertEquals("M001", member.getMemberId());
+        assertEquals("M001", member.getMemberID());
         assertEquals("Owe Nxasana", member.getMemberName());
         assertEquals("owe@email.com", member.getMemberEmail());
         assertEquals("0832234567", member.getMemberPhone());
-        assertEquals("2026-03-18", member.getMembershipDate());
+    }
+
+    @Test
+    void shouldCreateMemberUsingFactoryWithRequiredFields() {
+        Member member = MemberFactory.createMember("M010", "Basic Member");
+
+        assertNotNull(member);
+        assertEquals("M010", member.getMemberID());
+        assertEquals("Basic Member", member.getMemberName());
     }
 
     @Test
     void shouldThrowExceptionWhenIdIsMissing() {
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Member.Builder(null, "Owe")
-                    .build();
+            MemberFactory.createMember(null, "Owe");
         });
     }
 
@@ -41,8 +44,7 @@ class MemberFactoryTest {
     void shouldThrowExceptionWhenIdIsInvalid() {
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Member.Builder("123", "Owe")
-                    .build();
+            MemberFactory.createMember("123", "Owe");
         });
     }
 
@@ -50,8 +52,7 @@ class MemberFactoryTest {
     void shouldThrowExceptionWhenNameIsMissing() {
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Member.Builder("M002", "")
-                    .build();
+            MemberFactory.createMember("M002", "");
         });
     }
 
@@ -59,9 +60,7 @@ class MemberFactoryTest {
     void shouldThrowExceptionWhenEmailIsInvalid() {
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Member.Builder("M003", "Owe")
-                    .setMemberEmail("invalid-email")
-                    .build();
+            MemberFactory.createMember("M003", "Owe", "invalid-email", "0830000000");
         });
     }
 }

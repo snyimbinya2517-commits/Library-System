@@ -6,6 +6,11 @@ package factory;
 
 import domain.Member;
 
+/* Factory Member class
+  Author: 230240887 Owenkosi Nxasana
+  Date: 13 March 2026
+*/
+
 public class MemberFactory {
 
     public static Member createMember(String memberId, String name) {

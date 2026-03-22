@@ -1,8 +1,10 @@
 
 package domain;
-/**
+
+/*
  * Authour: Sinazo Ntsimbi
  * 222765208
+ * Date: 16 March 2026
  */
 import java.time.LocalDate;
 import java.util.Objects;
@@ -10,11 +12,11 @@ import java.util.Objects;
 public class Loan
 {
 
-//<<<<<<< 222765208
-    private String loanId;
-    private LocalDate issueDate;
-    private LocalDate dueDate;
-    private LocalDate returnDate;
+
+    private final String loanId;
+    private final LocalDate issueDate;
+    private final LocalDate dueDate;
+    private final LocalDate returnDate;
 
     private Loan(Builder builder) {
         this.loanId = builder.loanId;

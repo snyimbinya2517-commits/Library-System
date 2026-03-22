@@ -3,9 +3,7 @@ package repository.impl;
 import domain.Librarian;
 import repository.LibrarianRepository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,10 +31,5 @@ public class LibrarianRepositoryImpl implements LibrarianRepository {
 	@Override
 	public boolean delete(String id) {
 		return storage.remove(id) != null;
-	}
-
-	@Override
-	public List<Librarian> findAll() {
-		return new ArrayList<>(storage.values());
 	}
 }

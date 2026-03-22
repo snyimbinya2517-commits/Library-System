@@ -7,9 +7,6 @@ package domain;
 
 import java.util.Objects;
 
-// Member domain class
-//Author: 230240887 Owenkosi Nxasana
-//Date: 13 March 2026
 
 public class Member {
 

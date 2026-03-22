@@ -1,14 +1,6 @@
 
 # 3rd Year AppDev Library System
 
-## Group Members
-- Leader: 1: TIYANI NGWANA      231266731 - Category and Publisher Entity
-- Member 2: ABULELE NTWANAMBI 218276400 - Reservation Entity
-- Member 3: NOMHLE NJENGELE   216227488 - Book Entity
-- Member 4: OWENKOSI NXASANA  230240887 - Member Entity
-- Member 5: SINAZO NTSIMBI    222765208 - Loan Entity
-- Member 6: SINETHEMBA NYIMBINYA 220085870 - Librarian Entity
-
 ## Domain
 A specialized library for 3rd Year Application Development students at CPUT.
 Contains academic books for final year modules.
@@ -19,6 +11,14 @@ Contains academic books for final year modules.
 - **Loan**: Records of books borrowed
 - **Librarian**: Staff who manage the library
 - **Category**: Book categories (Software Eng, Database, Project Management, etc.)
+
+## Group Members
+- Leader: 1: TIYANI NGWANA      231266731 - Category and Publisher Entity
+- Member 2: ABULELE NTWANAMBI 218276400 - Reservation Entity
+- Member 3: NOMHLE NJENGELE   216227488 - Book Entity
+- Member 4: OWENKOSI NXASANA  230240887 - Member Entity
+- Member 5: SINAZO NTSIMBI    222765208 - Loan Entity
+- Member 6: SINETHEMBA NYIMBINYA 220085870 - Librarian Entity
 
  ## Contributing Guidelines
   

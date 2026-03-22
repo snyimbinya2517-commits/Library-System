@@ -1,5 +1,6 @@
 /*
-Author:
+*Author:Sinazo Ntsimbi
+* 222765208
 Date: 
 */
 package repository.impl;
@@ -17,12 +18,12 @@ class LoanRepositoryImplTest {
     void testCreateReadUpdateDelete() {
         LoanRepositoryImpl repository = new LoanRepositoryImpl();
 
-        Loan loan = new Loan.Builder().setLoanId("L001").setIssue(LocalDate.of(2026, 3, 20)).setDueDate(LocalDate.of(2026, 3, 27)).setReturnDate(null).build();
+        Loan loan = new Loan.Builder().setLoanId("L001").setIssueDate(LocalDate.of(2026, 3, 20)).setDueDate(LocalDate.of(2026, 3, 27)).setReturnDate(null).build();
         repository.create(loan);
 
         assertTrue(repository.read("L001").isPresent());
 
-        Loan updatedLoan = new Loan.Builder().setLoanId("L001").setIssue(LocalDate.of(2026, 3, 20)).setDueDate(LocalDate.of(2026, 3, 30)).setReturnDate(null).build();
+        Loan updatedLoan = new Loan.Builder().setLoanId("L001").setIssueDate(LocalDate.of(2026, 3, 20)).setDueDate(LocalDate.of(2026, 3, 30)).setReturnDate(null).build();
         repository.update(updatedLoan);
         assertTrue(repository.read("L001").isPresent());
 

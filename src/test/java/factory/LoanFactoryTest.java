@@ -1,5 +1,8 @@
 package factory;
-
+/*
+*Author: Sinazo Ntsimbi
+* 222765208
+ */
 import domain.Loan;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
@@ -74,7 +77,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 					.build();
 		});
 	}
-
 	@Test
 	void shouldThrowExceptionWhenDueDateIsBeforeIssueDate() {
 

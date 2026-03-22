@@ -4,15 +4,11 @@ package domain;
 /*
  * Authour: Sinazo Ntsimbi
  * 222765208
- * Date: 16 March 2026
  */
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Loan
-{
-
-
+public class Loan {
     private final String loanId;
     private final LocalDate issueDate;
     private final LocalDate dueDate;

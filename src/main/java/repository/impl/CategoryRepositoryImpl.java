@@ -5,6 +5,7 @@ Date: 16 March 2026
 package repository.impl;
 
 import domain.Category;
+import domain.Reservation;
 import repository.CategoryRepository;
 
 import java.util.HashMap;
@@ -16,18 +17,41 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 	private final Map<String, Category> storage = new HashMap<>();
 
+    private static ReservationRepositoryImpl repository = null;
+
+
+
+    public static ReservationRepositoryImpl getRepository() {
+        if (repository == null) {
+            repository = new ReservationRepositoryImpl();
+
+        }
+        return repository;
+
+    }
+
 	@Override
 	public Category create(Category entity) {
 		storage.put(entity.getCategoryId(), entity);
 		return entity;
 	}
 
-	@Override
+    @Override
+    public Category save(Category entity) {
+        return null;
+    }
+
+    @Override
 	public Optional<Category> read(String id) {
 		return Optional.ofNullable(storage.get(id));
 	}
 
-	@Override
+    @Override
+    public Optional<Category> findById(String s) {
+        return Optional.empty();
+    }
+
+    @Override
 	public Category update(Category entity) {
 		storage.put(entity.getCategoryId(), entity);
 		return entity;

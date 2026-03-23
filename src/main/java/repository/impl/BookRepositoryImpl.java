@@ -8,6 +8,7 @@ package repository.impl;
 
 
 import domain.Book;
+import domain.Reservation;
 import repository.BookRepository;
 
 import java.util.HashMap;
@@ -22,18 +23,40 @@ public class BookRepositoryImpl implements BookRepository {
 		return book.hashCode() + "";
 	}
 
+    private static ReservationRepositoryImpl repository = null;
+
+
+    public static ReservationRepositoryImpl getRepository() {
+        if (repository == null) {
+            repository = new ReservationRepositoryImpl();
+
+        }
+        return repository;
+
+    }
+
 	@Override
 	public Book create(Book entity) {
 		storage.put(keyFor(entity), entity);
 		return entity;
 	}
 
-	@Override
+    @Override
+    public Book save(Book entity) {
+        return null;
+    }
+
+    @Override
 	public Optional<Book> read(String id) {
 		return Optional.ofNullable(storage.get(id));
 	}
 
-	@Override
+    @Override
+    public Optional<Book> findById(String s) {
+        return Optional.empty();
+    }
+
+    @Override
 	public Book update(Book entity) {
 		storage.put(keyFor(entity), entity);
 		return entity;

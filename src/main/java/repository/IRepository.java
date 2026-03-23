@@ -9,8 +9,10 @@ import java.util.Optional;
 
 public interface IRepository<T, ID> {
     T create(T entity);
+    T save(T entity);
 
     Optional<T> read(ID id);
+    Optional<T> findById(ID id);
 
     T update(T entity);
 

@@ -26,6 +26,10 @@ public class ReservationFactory
                 .build();
 
     }
+    public static int counter =1;
+    public static String generateID(){
+        return String.format("%03d",counter++);
+    }
 }
 
 

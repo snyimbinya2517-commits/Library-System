@@ -19,7 +19,14 @@ class ReservationRepositoryImplTest {
 
         Reservation reservation = new Reservation.Builder("R001", LocalDate.now(), "Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
         repository.create(reservation);
+        assertTrue(repository.read("R001").isPresent());
 
+        Reservation saveReservation = new Reservation.Builder("R001",LocalDate.now(),"Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
+        repository.save(saveReservation);
+        assertTrue(repository.read("R001").isPresent());
+
+        Reservation findReservation = new Reservation.Builder("R001",LocalDate.now(),"Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
+        repository.findById(String.valueOf(findReservation));
         assertTrue(repository.read("R001").isPresent());
 
         Reservation updatedReservation = new Reservation.Builder("R001", LocalDate.now(), "Collected").setExpiryDate(LocalDate.now().plusDays(2)).build();

@@ -1,18 +1,18 @@
+package factory;
+
+
 //Reservation Factory Test.
 //Author:Abulele Ntwanambi 21827600
 //Date:20/03/22026
-
-package factory;
-
 
 import domain.Reservation;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ReservationFactoryTest {
 
@@ -20,7 +20,10 @@ public class ReservationFactoryTest {
     void shouldcreateReservation(){
 
 
-        Reservation reservation = ReservationFactory.createReservation("001", LocalDate.now(), "Available", LocalDate.now());
+        Reservation reservation = new Reservation.Builder("001",LocalDate.now( ),"Available")
+
+                .setExpiryDate(LocalDate.now())
+                .build();
 
         assertEquals("001",reservation.getReservationID());
         assertEquals(LocalDate.now(),reservation.getDate());

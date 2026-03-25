@@ -1,71 +1,75 @@
 /* MemberRepositoryImpl.java
    Member repository implementation
-   Author:
-   Date: 13 March 2026.
+   Author: Nxasana Owenkosi 230240887
+   Date: 13 March 2026
 */
 package repository.impl;
 
 import domain.Member;
-import domain.Reservation;
 import repository.MemberRepository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.*;
 
 public class MemberRepositoryImpl implements MemberRepository {
 
-    private final Map<String, Member> storage = new HashMap<>();
+    private static MemberRepositoryImpl repository = null;
+    private final Map<String, Member> memberMap;
 
-    private String keyFor(Member member) {
-        return member.getMemberID();
+    // Private constructor (Singleton)
+    private MemberRepositoryImpl() {
+        memberMap = new HashMap<>();
     }
 
-    private static ReservationRepositoryImpl repository = null;
-
-
-
-    public static ReservationRepositoryImpl getRepository() {
+    // Global access point
+    public static MemberRepositoryImpl getRepository() {
         if (repository == null) {
-            repository = new ReservationRepositoryImpl();
-
+            repository = new MemberRepositoryImpl();
         }
         return repository;
-
     }
 
+    // CREATE
     @Override
-    public Member create(Member entity) {
-        storage.put(keyFor(entity), entity);
-        return entity;
+    public Member create(Member member) {
+        memberMap.put(member.getMemberID(), member);
+        return member;
     }
 
+    // READ (Optional = best practice)
     @Override
-    public Member save(Member entity) {
-        return null;
+    public Optional<Member> read(String memberID) {
+        return Optional.ofNullable(memberMap.get(memberID));
     }
 
+    // UPDATE
     @Override
-    public Optional<Member> read(String id) {
-        return Optional.ofNullable(storage.get(id));
+    public Member update(Member member) {
+        if (memberMap.containsKey(member.getMemberID())) {
+            memberMap.put(member.getMemberID(), member);
+            return member;
+        }
+        throw new RuntimeException("Member not found");
     }
 
+    // DELETE
     @Override
-    public Optional<Member> findById(String s) {
-        return Optional.empty();
+    public boolean delete(String memberID) {
+        return memberMap.remove(memberID) != null;
     }
 
+    // READ ALL
     @Override
-    public Member update(Member entity) {
-        storage.put(keyFor(entity), entity);
-        return entity;
+    public List<Member> getAll() {
+        return new ArrayList<>(memberMap.values());
     }
 
-    @Override
-    public boolean delete(String id) {
-        return storage.remove(id) != null;
+    public void clear() {
+        memberMap.clear();
     }
-
-
 }
 

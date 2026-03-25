@@ -1,6 +1,7 @@
-/*
-Author:Abulele Ntwanambi 218276400
-Date: 22/03/2026
+/* ReservationRepositoryImplTest.java
+   Reservation repository implementation test
+   Author: Abulele Ntwanambi (218276400)
+   Date: 23 March 2026
 */
 package repository.impl;
 
@@ -8,33 +9,98 @@ import domain.Reservation;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReservationRepositoryImplTest {
 
     @Test
-    void testCreateReadUpdateDelete() {
+    void testCreate() {
         ReservationRepositoryImpl repository = new ReservationRepositoryImpl();
+        Reservation reservation = new Reservation.Builder("R001", LocalDate.now(), "Available")
+                .setExpiryDate(LocalDate.now().plusDays(2))
+                .build();
 
-        Reservation reservation = new Reservation.Builder("R001", LocalDate.now(), "Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
+        Reservation createdReservation = repository.create(reservation);
+
+        assertNotNull(createdReservation);
+        assertEquals("R001", createdReservation.getReservationID());
+        assertEquals("Available", createdReservation.getStatus());
+    }
+
+    @Test
+    void testRead() {
+        ReservationRepositoryImpl repository = new ReservationRepositoryImpl();
+        Reservation reservation = new Reservation.Builder("R002", LocalDate.now(), "Pending")
+                .setExpiryDate(LocalDate.now().plusDays(3))
+                .build();
+
         repository.create(reservation);
-        assertTrue(repository.read("R001").isPresent());
+        String key = reservation.getReservationID();
 
-        Reservation saveReservation = new Reservation.Builder("R001",LocalDate.now(),"Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
-        repository.save(saveReservation);
-        assertTrue(repository.read("R001").isPresent());
+        Optional<Reservation> foundReservation = repository.read(key);
 
-        Reservation findReservation = new Reservation.Builder("R001",LocalDate.now(),"Available").setExpiryDate(LocalDate.now().plusDays(2)).build();
-        repository.findById(String.valueOf(findReservation));
-        assertTrue(repository.read("R001").isPresent());
+        assertTrue(foundReservation.isPresent());
+        assertEquals("R002", foundReservation.get().getReservationID());
+    }
 
-        Reservation updatedReservation = new Reservation.Builder("R001", LocalDate.now(), "Collected").setExpiryDate(LocalDate.now().plusDays(2)).build();
+    @Test
+    void testUpdate() {
+        ReservationRepositoryImpl repository = new ReservationRepositoryImpl();
+        Reservation reservation = new Reservation.Builder("R003", LocalDate.now(), "Available")
+                .setExpiryDate(LocalDate.now().plusDays(2))
+                .build();
+
+        repository.create(reservation);
+        String key = reservation.getReservationID();
+
+        Reservation updatedReservation = new Reservation.Builder("R003", LocalDate.now(), "Collected")
+                .setExpiryDate(LocalDate.now().plusDays(2))
+                .build();
+
         repository.update(updatedReservation);
-        assertTrue(repository.read("R001").isPresent());
 
-        assertTrue(repository.delete("R001"));
-        assertFalse(repository.read("R001").isPresent());
+        Optional<Reservation> result = repository.read(key);
+        assertTrue(result.isPresent());
+        assertEquals("Collected", result.get().getStatus());
+    }
+
+    @Test
+    void testDelete() {
+        ReservationRepositoryImpl repository = new ReservationRepositoryImpl();
+        Reservation reservation = new Reservation.Builder("R004", LocalDate.now(), "Available")
+                .setExpiryDate(LocalDate.now().plusDays(2))
+                .build();
+
+        repository.create(reservation);
+        String key = reservation.getReservationID();
+
+        boolean deleted = repository.delete(key);
+
+        assertTrue(deleted);
+        assertFalse(repository.read(key).isPresent());
+    }
+
+    @Test
+    void testGetAll() {
+        ReservationRepositoryImpl repository = new ReservationRepositoryImpl();
+        Reservation reservation1 = new Reservation.Builder("R005", LocalDate.now(), "Available")
+                .setExpiryDate(LocalDate.now().plusDays(2))
+                .build();
+
+        Reservation reservation2 = new Reservation.Builder("R006", LocalDate.now(), "Pending")
+                .setExpiryDate(LocalDate.now().plusDays(3))
+                .build();
+
+        repository.create(reservation1);
+        repository.create(reservation2);
+
+        Collection<Reservation> allReservations = repository.getAll();
+
+        assertNotNull(allReservations);
+        assertEquals(2, allReservations.size());
     }
 }
 

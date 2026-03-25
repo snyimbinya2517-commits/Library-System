@@ -1,16 +1,14 @@
+/* BookRepositoryImpl.java
+   Book repository implementation
+   Author: Nomhle Njengele (216227488)
+   Date: 13 March 2026
+*/
 package repository.impl;
 
-
-/*
-  Author: Nomhle Ngengele 216227488
-  Date: 16 March 2026
-* */
-
-
 import domain.Book;
-import domain.Reservation;
 import repository.BookRepository;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -23,40 +21,18 @@ public class BookRepositoryImpl implements BookRepository {
 		return book.hashCode() + "";
 	}
 
-    private static ReservationRepositoryImpl repository = null;
-
-
-    public static ReservationRepositoryImpl getRepository() {
-        if (repository == null) {
-            repository = new ReservationRepositoryImpl();
-
-        }
-        return repository;
-
-    }
-
 	@Override
 	public Book create(Book entity) {
 		storage.put(keyFor(entity), entity);
 		return entity;
 	}
 
-    @Override
-    public Book save(Book entity) {
-        return null;
-    }
-
-    @Override
+	@Override
 	public Optional<Book> read(String id) {
 		return Optional.ofNullable(storage.get(id));
 	}
 
-    @Override
-    public Optional<Book> findById(String s) {
-        return Optional.empty();
-    }
-
-    @Override
+	@Override
 	public Book update(Book entity) {
 		storage.put(keyFor(entity), entity);
 		return entity;
@@ -66,5 +42,9 @@ public class BookRepositoryImpl implements BookRepository {
 	public boolean delete(String id) {
 		return storage.remove(id) != null;
 	}
-	//End or program
+
+	@Override
+	public Collection<Book> getAll() {
+		return storage.values();
+	}
 }

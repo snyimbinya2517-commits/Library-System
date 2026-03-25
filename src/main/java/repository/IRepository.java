@@ -5,17 +5,15 @@
 */
 package repository;
 
+import java.util.Collection;
 import java.util.Optional;
 
 public interface IRepository<T, ID> {
-    T create(T entity);
-    T save(T entity);
-
+    T create(T t);
     Optional<T> read(ID id);
-    Optional<T> findById(ID id);
-
-    T update(T entity);
-
+    T update(T t);
     boolean delete(ID id);
+    Collection<T> getAll();
 }
+
 

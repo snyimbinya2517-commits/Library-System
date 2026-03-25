@@ -1,9 +1,9 @@
 /* ReservationFactory.java
    Reservation factory class
-   
+   Author: Abulele Ntwanambi 218276400
+   Date: 16 March 2026
 */
-//Author: Abulele Ntwanambi 218276400
-//Date: 16 March 2026
+
 
 package factory;
 

@@ -1,13 +1,14 @@
-/*Author: Ngwana Tiyani 231266731
+/* 
+Author: Ngwana Tiyani 231266731
 Date: 16 March 2026
 */
 
 package repository.impl;
 
 import domain.Category;
-import domain.Reservation;
 import repository.CategoryRepository;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,41 +18,18 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 	private final Map<String, Category> storage = new HashMap<>();
 
-    private static ReservationRepositoryImpl repository = null;
-
-
-
-    public static ReservationRepositoryImpl getRepository() {
-        if (repository == null) {
-            repository = new ReservationRepositoryImpl();
-
-        }
-        return repository;
-
-    }
-
 	@Override
 	public Category create(Category entity) {
 		storage.put(entity.getCategoryId(), entity);
 		return entity;
 	}
 
-    @Override
-    public Category save(Category entity) {
-        return null;
-    }
-
-    @Override
+	@Override
 	public Optional<Category> read(String id) {
 		return Optional.ofNullable(storage.get(id));
 	}
 
-    @Override
-    public Optional<Category> findById(String s) {
-        return Optional.empty();
-    }
-
-    @Override
+	@Override
 	public Category update(Category entity) {
 		storage.put(entity.getCategoryId(), entity);
 		return entity;
@@ -62,6 +40,10 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 		return storage.remove(id) != null;
 	}
 
+	@Override
+	public Collection<Category> getAll() {
+		return storage.values();
+	}
 
 	@Override
 	public Optional<Category> findByName(String name) {
@@ -83,3 +65,5 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 				.anyMatch(category -> category.getName().equalsIgnoreCase(name));
 	}
 }
+
+

@@ -5,36 +5,18 @@ import domain.Reservation;
 import repository.ReservationRepository;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.util.stream.Collectors.toList;
-
 public class ReservationRepositoryImpl implements ReservationRepository {
-    private static ReservationRepositoryImpl repository = null;
 
     private final Map<String, Reservation> storage = new HashMap<>();
 
-    public static ReservationRepositoryImpl getRepository() {
-        if (repository == null) {
-            repository = new ReservationRepositoryImpl();
-
-        }
-        return repository;
-
-    }
-
-
     @Override
     public Reservation create(Reservation entity) {
-        storage.put(entity.getReservationID(), entity);
-        return entity;
-    }
-
-    @Override
-    public Reservation save(Reservation entity) {
         storage.put(entity.getReservationID(), entity);
         return entity;
     }
@@ -45,16 +27,9 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public Optional<Reservation> findById(String id) {
-        return Optional.ofNullable(storage.get(id));
-    }
-
-    @Override
     public Reservation update(Reservation entity) {
         if (storage.containsKey(entity.getReservationID())) {
-
             storage.put(entity.getReservationID(), entity);
-
             return entity;
         }
         return null;
@@ -66,12 +41,16 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
+    public Collection<Reservation> getAll() {
+        return storage.values();
+    }
+
+    @Override
     public List<Reservation> findAllByDate(LocalDate date) {
         return storage.values()
                 .stream()
                 .filter(r -> r.getDate().equals(date))
                 .toList();
-
     }
 
     @Override
@@ -82,7 +61,3 @@ public class ReservationRepositoryImpl implements ReservationRepository {
                 .toList();
     }
 }
-
-	//End or program
-	
-
